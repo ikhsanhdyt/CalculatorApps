@@ -20,16 +20,27 @@ class App {
         val firstInput = readLine()?.toInt()?:0
         println("Second input :")
         val secondInput = readLine()?.toInt()?:0
-        calculate(firstInput,secondInput)
-
+        println("Please select the operator")
+        println("+")
+        println("-")
+        println("/")
+        println("*")
+        val operator = readLine().toString()
+        calculate(firstInput,secondInput,operator)
     }
 
-    private fun calculate(a:Int,b:Int){
+    private fun calculate(a:Int,b:Int,operator:String){
         val calcUtils = CalcUtils()
-        println("Result for plus is ${calcUtils.plus(a,b)}")
-        println("Result for minus is ${calcUtils.minus(a,b)}")
-        println("Result for divide is ${calcUtils.divide(a,b)}")
-        println("Result for multiply is ${calcUtils.multiply(a,b)}")
+        when(operator.lowercase()){
+            "+"      -> println("Result for plus is ${calcUtils.plus(a,b)}")
+            "-"      -> println("Result for minus is ${calcUtils.minus(a,b)}")
+            "/"      -> println("Result for divide is ${calcUtils.divide(a,b)}")
+            "x"      -> println("Result for multiply is ${calcUtils.multiply(a,b)}")
+
+            else -> {
+                println("Please choose the right operator")
+            }
+        }
     }
 
     companion object{
