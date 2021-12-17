@@ -6,7 +6,7 @@ class App {
 
     fun run() {
         printHeader()
-        calculate()
+        inputValue()
     }
 
     private fun printHeader() {
@@ -15,12 +15,21 @@ class App {
         println("=====================")
     }
 
-    private fun calculate(){
+    private fun inputValue(){
+        println("First input :")
+        val firstInput = readLine()?.toInt()?:0
+        println("Second input :")
+        val secondInput = readLine()?.toInt()?:0
+        calculate(firstInput,secondInput)
+
+    }
+
+    private fun calculate(a:Int,b:Int){
         val calcUtils = CalcUtils()
-        println(calcUtils.plus(10,10))
-        println(calcUtils.minus(10,10))
-        println(calcUtils.divide(10,10))
-        println(calcUtils.multiply(10,10))
+        println("Result for plus is ${calcUtils.plus(a,b)}")
+        println("Result for minus is ${calcUtils.minus(a,b)}")
+        println("Result for divide is ${calcUtils.divide(a,b)}")
+        println("Result for multiply is ${calcUtils.multiply(a,b)}")
     }
 
     companion object{
